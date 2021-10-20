@@ -8,6 +8,7 @@ def readIndex(index_path, shuffle=False,mode=str):
             img_path = os.path.normcase(os.path.join(index_path,'train','img', name + '.jpg'))
             seg_path = os.path.normcase(os.path.join(index_path,'train','mask', name + '.bmp'))
             _list.append([img_path,seg_path])
+   
     elif mode == 'val':
         name_list = [os.path.basename(name).split('.')[0]
                      for name in glob(os.path.join(index_path,'val','img', '*'))]
@@ -16,6 +17,7 @@ def readIndex(index_path, shuffle=False,mode=str):
             img_path = os.path.normcase(os.path.join(index_path,'val','img', name + '.JPG'))
             seg_path = os.path.normcase(os.path.join(index_path,'val','mask', name + '.bmp'))
             _list.append([img_path,seg_path])
+    
     elif mode == 'test':
         name_list = [os.path.basename(name).split('.')[0]
                      for name in glob(os.path.join(index_path,'img', '*'))]
